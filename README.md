@@ -2,7 +2,7 @@
 
 # 如何使用
 - import 'UITextView+WZXRTF.h'
-- 执行`- (void)setAttributes:(NSArray <WZXAttributedModel * > *)attributes`
+- 执行`- (void)setAttributes:(NSArray <WZXRTFModel * > *)attributes`
 
 或者
 
