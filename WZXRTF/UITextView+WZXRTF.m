@@ -34,7 +34,7 @@
     [self setAttributedText: attributedString];
 }
 
-- (void)wzx_autoChange {
+- (void)wzx_autoDetection {
     NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString: self.text];
     
 //    NSDictionary * imgMapper = [self wzx_getValueForClassSel:@"wzx_imagePropertyMapper"];
