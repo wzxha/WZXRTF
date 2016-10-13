@@ -1,10 +1,14 @@
-# WZXAttributedLabel
+# WZXRTF
 
 # 如何使用
-1. 创建`WZXAttributedLabel`对象
-2. 执行`- (void)setAttributes:(NSArray <WZXAttributedModel * > *)attributes`
+- import 'UITextView+WZXRTF.h'
+- 执行`- (void)setAttributes:(NSArray <WZXAttributedModel * > *)attributes`
 
-# WZXAttributedModel属性
+或者
+
+- `[textView wzx_autoDetection]` 自动识别电话，链接.
+
+# WZXRTFModel属性
 | 属性名        | 简介           | 类型  |
 | ------------- |:-------------:| -----:|
 |text|文字|NSString|
@@ -17,10 +21,3 @@
 |imageRect|图片位置|CGRect|
 |font|文字字体|UIFont|
 |link|链接网址或id|NSString|
-
-# WZXAttributedDelegate代理方法
-
-```objc
-// 点击链接
-- (BOOL)wzx_attributedLabelHasClicked:(NSString *)link;
-```
