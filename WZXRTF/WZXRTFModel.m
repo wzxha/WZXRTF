@@ -6,9 +6,9 @@
 //  Copyright © 2016年 WzxJiang. All rights reserved.
 //
 
-#import "WZXAttributedModel.h"
+#import "WZXRTFModel.h"
 
-@implementation WZXAttributedModel
+@implementation WZXRTFModel
 
 - (instancetype)init {
     if (self = [super init]) {

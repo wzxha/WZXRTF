@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreText/CoreText.h>
 
-@interface WZXAttributedModel : NSObject
+@interface WZXRTFModel : NSObject
 
 // 文字
 @property(nonatomic, copy)NSString * text;

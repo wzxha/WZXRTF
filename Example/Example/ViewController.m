@@ -7,9 +7,9 @@
 //
 
 #import "ViewController.h"
-#import "WZXAttributedLabel.h"
+#import "UITextView+WZXRTF.h"
 
-@interface ViewController () <WZXAttributedDelegate>
+@interface ViewController ()
 
 @end
 
@@ -17,37 +17,41 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    WZXAttributedLabel * label = [[WZXAttributedLabel alloc] init];
-    label.frame = CGRectMake(10, 20, self.view.frame.size.width - 20, self.view.frame.size.height - 20);
+    UITextView * textView1 = [UITextView new];
+    textView1.frame = CGRectMake(10, 20, self.view.frame.size.width - 20, self.view.frame.size.height - 20);
+    textView1.text = @"我的网址: http://www.wzxjiang.com 我的 www.wzx.com 18516312500";
+    [textView1 wzx_autoDetection];
+    [self.view addSubview:textView1];
     
-    label.minorDelegate = self;
     
-    WZXAttributedModel * model1 = [WZXAttributedModel new];
+    UITextView * textView2 = [UITextView new];
+    textView2.frame = CGRectMake(10, 120, self.view.frame.size.width - 20, self.view.frame.size.height - 20);
+    
+    WZXRTFModel * model1 = [WZXRTFModel new];
     model1.text = @"sjkdhsakjhdjksahdjkashdjhsajkdhsajkdhkjashdkjashdjkashdjksahjkdhsajkdhksjahdjksahd，到处为";
     model1.textColor = [UIColor blackColor];
     model1.font = [UIFont boldSystemFontOfSize:20];
-    
-    WZXAttributedModel * model2 = [WZXAttributedModel new];
+
+    WZXRTFModel * model2 = [WZXRTFModel new];
     model2.image = [UIImage imageNamed:@"IMG_8371.JPG"];
     model2.imageRect = CGRectMake(0, -3, 20, 20);
-    
-    WZXAttributedModel * model3 = [WZXAttributedModel new];
+
+    WZXRTFModel * model3 = [WZXRTFModel new];
     model3.text = @"...[查看全文]";
     model3.textColor = [UIColor grayColor];
     model3.font = [UIFont boldSystemFontOfSize:10];
     model3.link = @"123";
     model3.lineStyle = kCTUnderlineStyleSingle;
     
-    [label setAttributes:@[model1, model2, model3]];
-    [self.view addSubview:label];
+    [textView2 wzx_setAttributes:@[model1, model2, model3]];
+    [self.view addSubview:textView2];
+    
 }
 
-- (BOOL)wzx_attributedLabelHasClicked:(NSString *)link {
-    NSLog(@"%@", link);
-    if ([link isEqualToString:@"http://www.baidu.com"]) {
-        return YES;
-    }
-    return NO;
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange interaction:(UITextItemInteraction)interaction {
+    NSLog(@"URL.absoluteString: %@", URL.absoluteString);
+    
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning {
