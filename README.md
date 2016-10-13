@@ -1,4 +1,4 @@
-# WZXAttributedLabel
+# WZXRTF
 
 # 如何使用
 - import 'UITextView+WZXRTF.h'
@@ -21,10 +21,3 @@
 |imageRect|图片位置|CGRect|
 |font|文字字体|UIFont|
 |link|链接网址或id|NSString|
-
-# WZXAttributedDelegate代理方法
-
-```objc
-// 点击链接
-- (BOOL)wzx_attributedLabelHasClicked:(NSString *)link;
-```
