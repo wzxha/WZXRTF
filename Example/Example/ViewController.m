@@ -19,7 +19,7 @@
     [super viewDidLoad];
     UITextView * textView1 = [UITextView new];
     textView1.frame = CGRectMake(10, 20, self.view.frame.size.width - 20, self.view.frame.size.height - 20);
-    textView1.text = @"我的网址: http://www.wzxjiang.com 我的 www.wzx.com 电话: 11111111111";
+    textView1.text = @"我的网址: http://www.wzxjiang.com 我的 www.wzx.com/123/123/123/123 电话: 11111111111";
     [textView1 wzx_autoDetection];
     [self.view addSubview:textView1];
     

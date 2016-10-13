@@ -50,7 +50,7 @@
     NSDictionary * linkMapper = [self wzx_getValueForClassSel:@"wzx_linkPropertyMapper"];
     
     if ([linkMapper[@"url"] boolValue]) {
-        NSString * re = @"(((http|https|ftp)://)|(www.)){1}[a-zA-Z0-9]*(.){1}[a-zA-Z0-9]*((.){1}[a-zA-Z0-9]*)?";
+        NSString * re = @"((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|(www.[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)";
         NSRegularExpression * regex = [NSRegularExpression regularExpressionWithPattern:re options:NSRegularExpressionCaseInsensitive error:nil];
         
         [regex enumerateMatchesInString:self.text options:NSMatchingReportCompletion range:NSMakeRange(0, self.text.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {
